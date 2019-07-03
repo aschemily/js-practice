@@ -1,19 +1,58 @@
-<!doctype html>
-<html>
-  <head>
-    <title>This is the title of the webpage!</title>
-    <script src="src/index.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Some Content</h1>
+<!-- The Modal -->
+<script>
+let items = document.getElementsByClassName('mini-cart-container')
 
-        <p>
-          Other content
-          </p>
+let cartAmount = 0
+let cartTotal = 0
+let productImage = []
 
-      </div>
-  </body>
-</html>
+for (let i = 0; i < items.length; i++) {
+console.log(items[i].getAttribute('data-quantity'))
+
+cartAmount = items[i].getAttribute('data-quantity')
+
+
+ cartTotalQuery = items[i].querySelectorAll('.mini-cart-totals .mini-cart-subtotals .order-totals-table .order-total .order-value')
+ cartTotal = cartTotalQuery[0].textContent //using brackets
+
+
+let productImages = items[i].querySelectorAll('.mini-cart-content .mini-cart-products .mini-cart-product .mini-cart-image')
+
+
+
+  for (let i = 0; i < productImages.length; i++){
+     productImage.push(productImages[i].innerHTML)
+
+  }
+
+}
+
+console.log([cartAmount,
+cartTotal,
+   productImage])
+
+</script>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Modal Header</h2>
+    </div>
+    <div id="mod-body" class="modal-body">
+      <p>
+       <script type="text/javascript">
+        document.write(cartAmount)
+      </script>
+    </p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Modal Footer</h3>
+      <a href="https://www.marmot.com/expresscheckout" class="btn btn-default">Checkout</a>
+    </div>
+  </div>
+
+</div>

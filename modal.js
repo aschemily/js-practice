@@ -1,8 +1,8 @@
-let items = document.getElementsByClassName('mini-cart-container')
+var items = document.getElementsByClassName('mini-cart-container')
 
-let cartAmount = 0
-let cartTotal = 0
-let productImages = []
+var cartAmount = 0
+var cartTotal = 0
+var productImages = []
 
 for (let i = 0; i < items.length; i++) {
   console.log(items[i].getAttribute('data-quantity'))
@@ -14,7 +14,7 @@ for (let i = 0; i < items.length; i++) {
 	 cartTotal = cartTotalQuery[0].textContent //using brackets
 
 
-	let productImage = items[i].querySelectorAll('.mini-cart-content .mini-cart-products .mini-cart-product .mini-cart-image')
+	var productImage = items[i].querySelectorAll('.mini-cart-content .mini-cart-products .mini-cart-product .mini-cart-image')
 
 
 
@@ -27,32 +27,46 @@ for (let i = 0; i < items.length; i++) {
 
  console.log([cartAmount,
   cartTotal,
-     productImage])
+     productImages])
 
  $(window).on('scroll', function(){
-  let s = $(window).scrollTop(),
+  var s = $(window).scrollTop(),
       d = $(document).height(),
       c = $(window).height();
 
-   let scrollPercent = (s / (d - c)) * 100;
+   var scrollPercent = (s / (d - c)) * 100;
 
   	if(parseInt(scrollPercent) >= 90){
        // alert(cartTotal + cartAmount + productImage)
-            var modal = document.getElementById("myModal");
 
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var modal = document.getElementById("myModal");
 
-// When the user clicks on the button, open the modal
-modal.addEventListener("scroll", function(event){
-    console.log('scrolling')
-});
+// When the user scrolls to bottom 10% of page
+    userHasScrolled = false;
+		window.onscroll = function() {
+        userHasScrolled = true;
+				if(userHasScrolled){
+          displayModal()
+  				displayElements()
+        }	else {
+          userHasScrolled = false; 
+        }
 
-onclick = function() {
-  modal.style.display = "block";
-}
+};
 
-// When the user clicks on <span> (x), close the modal
+			function displayModal(){
+					modal.style.display = "block";
+				}
+			function displayElements(){
+				var body = document.getElementById("mod-body")
+					var li = document.createElement('LI')
+						li.innerHTML = cartAmount
+						body.appendChild(li)
+
+			}
+
+				// When the user clicks on <span> (x), close the modal
 span.onclick = function() {
   modal.style.display = "none";
 }
