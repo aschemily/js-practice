@@ -1,57 +1,125 @@
-<!-- The Modal -->
-<script>
-let items = document.getElementsByClassName('mini-cart-container')
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-let cartAmount = 0
-let cartTotal = 0
-let productImage = []
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
-for (let i = 0; i < items.length; i++) {
-console.log(items[i].getAttribute('data-quantity'))
+/* Modal Content */
+.modal-content {
+  position: relative;
+	top:50%
+	left:50%;
+	justify-content: center;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
 
-cartAmount = items[i].getAttribute('data-quantity')
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
 
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
 
- cartTotalQuery = items[i].querySelectorAll('.mini-cart-totals .mini-cart-subtotals .order-totals-table .order-total .order-value')
- cartTotal = cartTotalQuery[0].textContent //using brackets
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
 
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-let productImages = items[i].querySelectorAll('.mini-cart-content .mini-cart-products .mini-cart-product .mini-cart-image')
+.modal-header {
+  padding: 2px 16px;
+  background-color: #bdbfbd;
+  color: black;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
 
+.modal-header h1{
+  font-weight: bold;
+  font-size: 20px;
+}
 
+.modal-body {padding: 2px 16px;}
 
-  for (let i = 0; i < productImages.length; i++){
-     productImage.push(productImages[i].innerHTML)
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #bdbfbd;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
 
-  }
 
 }
 
-console.log([cartAmount,
-cartTotal,
-   productImage])
+.modal-footer .btn{
+  background-color: #f44336;
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   font-size: 16px;
+   margin: 4px 2px;
+   cursor: pointer;
+   float: right;
 
-</script>
+
+}
+
+
+</style>
 
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
-    <div class="modal-header">
+    <div id="mod-header" class="modal-header">
+      <h1>Your Cart:</h1>
       <span class="close">&times;</span>
-      <h2>Modal Header</h2>
     </div>
     <div id="mod-body" class="modal-body">
-      <p>
-       <script type="text/javascript">
-        document.write(cartAmount)
-      </script>
-    </p>
-      <p>Some other text...</p>
+      <ul id="list-elements">
+
+      </ul>
     </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
-      <a href="https://www.marmot.com/expresscheckout" class="btn btn-default">Checkout</a>
+    <div id="mod-footer" class="modal-footer">
+      <a href="https://www.marmot.com/expresscheckout" target="_blank" class="btn" >Checkout</a>
     </div>
   </div>
 
