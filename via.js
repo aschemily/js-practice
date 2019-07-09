@@ -31,17 +31,16 @@ $(window).on('scroll', function() {
     span.onclick = function() {
 
       modal.style.display = "none";
-      $("body").css("overflow", "auto");
-      userScrolledToPercent = false;
+      // $("body").css("overflow", "auto");
+      // userScrolledToPercent = false;
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
-        $("body").css("overflow", "auto");
-        userScrolledToPercent = false;
-
+        // $("body").css("overflow", "auto");
+        // userScrolledToPercent = false;
       }
     }
 
