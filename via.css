@@ -1,6 +1,7 @@
 
 body {font-family:'AccordReg', sans-serif;}
-
+display: inline-block;
+position: relative;
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
