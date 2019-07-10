@@ -76,21 +76,21 @@
           font-weight: bold;
           font-size: 30px;
           font-family: 'AccordReg', sans-serif;
-          color: white;
+          /* color: #5eccee; */
         }
 
         .modal-body {
-          padding: 2px 16px;
-          background-color: #5eccee;
-          color: white;
+          padding: 45px 10px;
+          background-color: white;
+          color: #5eccee;
           font-size: 18px;
           text-align: center;
 
         }
 
         .modal-footer {
-          padding: 2px 16px;
-          background-color: #5eccee;
+          padding: 12px 10px;
+          background-color: white;
           color: black;
           font-size: 14px;
           font-weight: bold;
@@ -102,13 +102,18 @@
         }
 
         .modal-footer .btn{
-           font-color: white;
+           color: #5eccee;
            border: none;
-           padding: 15px 32px;
+           padding: 10px 10px;
            text-decoration: none;
            font-size: 16px;
            margin: 4px 2px;
            cursor: pointer;
+        }
+
+        .modal-footer .btn:hover{
+          background-color: #fc9f42;
+          color: white;
         }
 
 </style>
@@ -119,7 +124,7 @@
   <!-- Modal content -->
   <div class="modal-content">
     <div id="mod-header" class="modal-header">
-      <h1>Download Via Now!</h1>
+      <img src="https://ridewithvia.com/content/img/logo_icon.png" alt="logo" id="header-logo-icon" style="width:10%; height:15%; border:0;">
       <span class="close">&times;</span>
     </div>
     <div id="mod-body" class="modal-body">
@@ -130,10 +135,10 @@
     <div id="mod-footer" class="modal-footer">
       <div id="mod-footer" class="modal-footer">
         <a href="https://apps.apple.com/us/app/via-smarter-shared-rides/id657777015" target="_blank" class="btn" >
-            <img src="../content/img/icon_apple_32_w.png" alt="iTunes">
+            App Store
         </a>
         <a href="https://play.google.com/store/apps/details?id=via.rider" target="_blank" class="btn" >
-        <img src="../content/img/icon_android_32_w.png" alt="Play Store" >
+          Google Play
         </a>
 
 
